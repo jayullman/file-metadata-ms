@@ -9,7 +9,6 @@
     "serve": "webpack-dev-server",
     "buildDev": "webpack",
     "buildProduction": "webpack -p"
-
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,7 @@
   },
   "homepage": "https://github.com/libeja/file-metadata-ms#readme",
   "dependencies": {
+    "express": "^4.15.2",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
     "webpack": "^2.3.3",
