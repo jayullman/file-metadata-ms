@@ -12,18 +12,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
+          { loader: 'babel-loader' },
           {
-            loader: 'jshint-loader',
-            options: {
-              esversion: 6,
-              camelcase: true,
-              emitErrors: false,
-              failOnHint: false,
-              globalstrict: true,
-              "browser": true
-            }
-          },
-          { loader: 'babel-loader' }
+            loader: 'eslint-loader',
+          }
         ]
       }
     ]
