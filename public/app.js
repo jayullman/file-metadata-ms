@@ -10029,23 +10029,84 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(32);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function FileFormSubmit() {
-  return _react2.default.createElement(
-    "div",
-    null,
-    _react2.default.createElement(
-      "form",
-      { action: "/imagesize", method: "post" },
-      _react2.default.createElement("input", { type: "submit", value: "Submit" })
-    )
-  );
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FileFormSubmit = function (_Component) {
+  _inherits(FileFormSubmit, _Component);
+
+  function FileFormSubmit(props) {
+    _classCallCheck(this, FileFormSubmit);
+
+    var _this = _possibleConstructorReturn(this, (FileFormSubmit.__proto__ || Object.getPrototypeOf(FileFormSubmit)).call(this, props));
+
+    _this.state = {
+      showError: false
+    };
+
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(FileFormSubmit, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      // ensures that a file is selected
+      // if not, an error message is displayed
+      if (this.form.file.value) {
+        this.form.submit();
+      } else {
+        this.setState({ showError: true });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var showError = this.state.showError;
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "form",
+          {
+            ref: function ref(form) {
+              _this2.form = form;
+            },
+            onSubmit: this.handleSubmit,
+            action: "/imagesize",
+            method: "post",
+            encType: "multipart/form-data"
+          },
+          _react2.default.createElement("input", { type: "file", name: "file" }),
+          _react2.default.createElement("input", { type: "submit", value: "Submit" })
+        ),
+        showError ? _react2.default.createElement(
+          "p",
+          { className: "errorMessage" },
+          "You must select a file before submitting"
+        ) : null
+      );
+    }
+  }]);
+
+  return FileFormSubmit;
+}(_react.Component);
 
 exports.default = FileFormSubmit;
 
