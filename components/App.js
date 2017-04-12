@@ -1,12 +1,15 @@
 import React from 'react';
 
-import FileFormSubmit from './FileFormSubmit';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 
 export default function App() {
   return (
     <div>
-      <h1>React is a go!</h1>
-      <FileFormSubmit />
+      <Header />
+      <Body />
+      <Footer />
     </div>
   );
 }
