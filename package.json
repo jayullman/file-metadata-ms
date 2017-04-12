@@ -8,7 +8,8 @@
     "start": "nodemon server.js",
     "serve": "webpack-dev-server --host 0.0.0.0",
     "buildDev": "webpack",
-    "buildProduction": "webpack -p"
+    "buildProduction": "webpack -p",
+    "deploy": "git push heroku master"
   },
   "repository": {
     "type": "git",
