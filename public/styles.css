@@ -524,12 +524,12 @@ input[type=file] {
   position: absolute;
   bottom: 0;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 300px;
-
   color: red;
   font-size: .8em;
-
 }
 
 /* cancels hover effect on touchscreens */
