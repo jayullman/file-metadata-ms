@@ -27,7 +27,10 @@ class FileFormSubmit extends Component {
     const showError = this.state.showError;
 
     return (
-      <div>
+      <div className="form-container">
+        <p>
+          Choose a file to upload to the server
+        </p>
         <form
           ref={(form) => { this.form = form; } } 
           onSubmit={this.handleSubmit} 
